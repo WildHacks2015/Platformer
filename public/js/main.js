@@ -1,16 +1,1 @@
-var game = new Phaser.Game(640, 360, Phaser.AUTO);
-
-var GameState = {
-  preload: function(){
-
-  },
-  create: function(){
-
-  },
-  update: function(){
-
-  }
-};
-
-game.state.add('GameState', GameState);
-game.state.start('GameState');
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '', {preload: preload, create: create, update: update});
