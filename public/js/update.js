@@ -1,16 +1,44 @@
 var update = function(){
 
+// Control the creator
   if(cursors.left.isDown) {
-     player.moveLeft();
+     creator.moveLeft();
    } else if (cursors.right.isDown) {
-     player.moveRight();
+     creator.moveRight();
    } else if (cursors.up.isDown) {
-     player.moveUp();
+     creator.moveUp();
    } else if (cursors.down.isDown) {
-     player.moveDown();
+     creator.moveDown();
    } else {
-      player.stop();
+      creator.stop();
     }
+
+  // Control the destroyer
+    if(abutton.isDown) {
+       destroyer.moveLeft();
+     } else if (dbutton.isDown) {
+       destroyer.moveRight();
+     } else if (wbutton.isDown) {
+       destroyer.moveUp();
+     } else if (sbutton.isDown) {
+       destroyer.moveDown();
+     } else {
+       destroyer.stop();
+    }
+
+    // Control the hero
+      // if(abutton.isDown) {
+      //    destroyer.moveLeft();
+      //  } else if (dbutton.isDown) {
+      //    destroyer.moveRight();
+      //  } else if (wbutton.isDown) {
+      //    destroyer.moveUp();
+      //  } else if (sbutton.isDown) {
+      //    destroyer.moveDown();
+      //  } else {
+      //    destroyer.stop();
+      // };
+      //
 
   //ELSE UP, DOWN, STOP
 };
