@@ -5,9 +5,9 @@ var update = function(){
   game.physics.arcade.collide(destroyer,layer);
   game.physics.arcade.collide(hero,layer);
 
-  // game.physics.arcade.collide(creator, destroyer);
-  // game.physics.arcade.collide(creator, hero);
-  // game.physics.arcade.collide(destroyer, hero);
+  game.physics.arcade.collide(creator, destroyer);
+  game.physics.arcade.collide(creator, hero);
+  game.physics.arcade.collide(destroyer, hero);
 
   if(cursors.left.isDown) {
      creator.moveLeft();
@@ -41,5 +41,10 @@ var update = function(){
    } else {
      destroyer.stop();
   }
-  //ELSE UP, DOWN, STOP
+
+  //Check for win conditions
+  if (this.gameRunning && game.physics.arcade.collide(hero,goal)){
+    this.gameRunning = false;
+    endGame();
+  }
 };
