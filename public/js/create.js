@@ -1,17 +1,16 @@
 var layer;
 
 var create = function(){
-  var map;
   this.gameRunning = true; //for win conditions
 
   map = game.add.tilemap('map');
   map.addTilesetImage('tiles');
 
-
-
   map.setCollision(1);
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
+  layer.dirty = true;
+
 
   //this.background = this.game.add.sprite(0, 0, "background");
 
@@ -43,4 +42,4 @@ var endGame = function(){
 
   //game.lockRender = true;
   console.log("Game end");
-}
+};

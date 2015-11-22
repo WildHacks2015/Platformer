@@ -1,5 +1,5 @@
-var speed = 50;
-var hspeed = 200;
+var speed = 100;
+var hspeed = 10;
 var gridsize = 8;
 var spriteScale = 1;
 
@@ -16,6 +16,7 @@ Player = function(game, x, y, playerId){
   this.moveLeft = function() {
       this.body.velocity.x = -speed;
       this.body.velocity.y = 0;
+      console.log("left");
   };
 
   this.moveRight = function() {
