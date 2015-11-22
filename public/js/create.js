@@ -18,7 +18,7 @@ var create = function(){
   //	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  cursorsds = game.input.keyboard.createCursorKeys();
+  cursors = game.input.keyboard.createCursorKeys();
   wbutton = game.input.keyboard.addKey(Phaser.Keyboard.W);
   abutton = game.input.keyboard.addKey(Phaser.Keyboard.A);
   sbutton = game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -39,7 +39,8 @@ var endGame = function(){
   //Uncaught TypeError: this.endGame is not a function
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   text = game.add.text(0, 0, "Uncaught TypeError: this.endGame\nis not a function",style);
-  text.setTextBounds(0, 100, 800, 100);
+  text.setTextBounds(100, 100, 640, 100);
+
   //game.lockRender = true;
   console.log("Game end");
 }
