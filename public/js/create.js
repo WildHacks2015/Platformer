@@ -1,24 +1,23 @@
 var layer;
 
 var create = function(){
-  var map;
   this.gameRunning = true; //for win conditions
 
   map = game.add.tilemap('map');
   map.addTilesetImage('tiles');
 
-
-
   map.setCollision(1);
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
+  layer.dirty = true;
+
 
   //this.background = this.game.add.sprite(0, 0, "background");
 
   //	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  cursorsds = game.input.keyboard.createCursorKeys();
+  cursors = game.input.keyboard.createCursorKeys();
   wbutton = game.input.keyboard.addKey(Phaser.Keyboard.W);
   abutton = game.input.keyboard.addKey(Phaser.Keyboard.A);
   sbutton = game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -42,4 +41,4 @@ var endGame = function(){
   text.setTextBounds(0, 100, 800, 100);
   //game.lockRender = true;
   console.log("Game end");
-}
+};
