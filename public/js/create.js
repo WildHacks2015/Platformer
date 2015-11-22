@@ -11,8 +11,8 @@ var create = function(){
   dbutton = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
   creator = new Creator(game,100,100);
-  destroyer = new Destroyer(game,100,100);
-  hero = new Hero(game,100,100);
+  destroyer = new Destroyer(game,100,200);
+  hero = new Hero(game,100,300);
   game.add.existing(creator);
   game.add.existing(destroyer);
   game.add.existing(hero);
