@@ -1,7 +1,7 @@
 var update = function(){
 
 // Control the creator
-  game.physics.arcade.collide(creator,layer);
+  // game.physics.arcade.collide(creator,layer);
   game.physics.arcade.collide(destroyer,layer);
   game.physics.arcade.collide(hero,layer);
 
@@ -20,6 +20,14 @@ var update = function(){
    } else {
       creator.stop();
     }
+
+  platformX = layer.getTileX(creator.x);
+  platformY = layer.getTileY(creator.y);
+  console.log("platformX " + platformX + "platformY" + platformY);
+  impassableTile = map.getTile(37, 12);
+  layer.map.putTile(impassableTile, platformX, platformY);
+
+  console.log("platformX === ", platformX);
 
   // Control the destroyer
   if(abutton.isDown) {
