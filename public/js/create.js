@@ -17,7 +17,7 @@ var create = function(){
   //	Enable p2 physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  cursorsds = game.input.keyboard.createCursorKeys();
+  cursors = game.input.keyboard.createCursorKeys();
   wbutton = game.input.keyboard.addKey(Phaser.Keyboard.W);
   abutton = game.input.keyboard.addKey(Phaser.Keyboard.A);
   sbutton = game.input.keyboard.addKey(Phaser.Keyboard.S);
