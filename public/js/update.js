@@ -23,7 +23,6 @@ var update = function(){
 
   platformX = layer.getTileX(creator.x);
   platformY = layer.getTileY(creator.y);
-  console.log("platformX " + platformX + "platformY" + platformY);
   impassableTile = map.getTile(37, 12);
   layer.map.putTile(impassableTile, platformX, platformY);
 
@@ -31,8 +30,6 @@ var update = function(){
   nonPlatformY = layer.getTileY(destroyer.y);
   passableTile = map.getTile(12,4);
   layer.map.putTile(passableTile, nonPlatformX, nonPlatformY);
-
-  console.log("platformX === ", platformX);
 
   // Control the destroyer
   if(abutton.isDown) {
