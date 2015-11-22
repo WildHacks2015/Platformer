@@ -16,6 +16,7 @@ Player = function(game, x, y, playerId){
   this.moveLeft = function() {
       this.body.velocity.x = -speed;
       this.body.velocity.y = 0;
+      console.log("left");
   };
 
   this.moveRight = function() {

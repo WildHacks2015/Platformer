@@ -33,9 +33,5 @@ var update = function(){
    } else {
      destroyer.stop();
   }
-
-  game.physics.arcade.collide(destroyer, game.layer);
-  creator.body.velocity.x = 0;
-
   //ELSE UP, DOWN, STOP
 };

@@ -3,11 +3,8 @@ var layer;
 var create = function(){
   var map;
 
-
   map = game.add.tilemap('map');
   map.addTilesetImage('tiles');
-
-  
 
   map.setCollision(1);
   layer = map.createLayer('Tile Layer 1');
