@@ -2,7 +2,7 @@ var update = function(){
 
 // Control the creator
   // game.physics.arcade.collide(creator,layer);
-  game.physics.arcade.collide(destroyer,layer);
+  // game.physics.arcade.collide(destroyer,layer);
   game.physics.arcade.collide(hero,layer);
 
   game.physics.arcade.collide(creator, destroyer);
@@ -26,6 +26,11 @@ var update = function(){
   console.log("platformX " + platformX + "platformY" + platformY);
   impassableTile = map.getTile(37, 12);
   layer.map.putTile(impassableTile, platformX, platformY);
+
+  nonPlatformX = layer.getTileX(destroyer.x);
+  nonPlatformY = layer.getTileY(destroyer.y);
+  passableTile = map.getTile(12,4);
+  layer.map.putTile(passableTile, nonPlatformX, nonPlatformY);
 
   console.log("platformX === ", platformX);
 

@@ -1,5 +1,5 @@
-var speed = 50;
-var hspeed = 200;
+var speed = 100;
+var hspeed = 10;
 var gridsize = 8;
 var spriteScale = 1;
 
