@@ -1,6 +1,6 @@
-var speed = 200;
-var hspeed = 100;
-var gridsize = 80;
+var speed = 50;
+var hspeed = 50;
+var gridsize = 8;
 var spriteScale = 1;
 
 Creator = function(game, x, y) {
@@ -38,11 +38,20 @@ Creator = function(game, x, y) {
   this.stop = function(){
     if (this.body.velocity.x > 0)
     {
-      this.body.x = this.body.x + 40 - (this.body.x % 40);
+      this.body.x = this.body.x + gridsize - (this.body.x % gridsize);
     }
     else if (this.body.velocity.x < 0)
     {
-      this.body.x = this.body.x - (this.body.x % 40);
+      this.body.x = this.body.x - (this.body.x % gridsize);
+    }
+
+    if (this.body.velocity.y > 0)
+    {
+      this.body.y = this.body.y + gridsize - (this.body.y % gridsize);
+    }
+    else if (this.body.velocity.y < 0)
+    {
+      this.body.y = this.body.y - (this.body.y % gridsize);
     }
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
