@@ -13,5 +13,18 @@ var create = function(){
 
   cursors = game.input.keyboard.createCursorKeys();
 
+  createPlatforms();
 
+
+};
+
+var createPlatforms = function(){
+  platforms = game.add.group();
+  platforms.enableBody = true;
+
+  var platform = platforms.create(300, 100, 'platform');
+  platform.scale.x = 1;
+  platform.scale.y = 1;
+  platform.anchor.setTo(0.5, 0.5);
+  platform.body.immovable = true;
 };

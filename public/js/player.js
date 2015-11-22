@@ -4,7 +4,7 @@ Player = function(game, x, y) {
 
 
   Phaser.Sprite.call(this, game, x, y, 'p1');
-  this.scale.setTo(2, 2);
+  this.scale.setTo(0.3, 0.3);
 
   //Enable physics
   game.physics.p2.enable(this);
