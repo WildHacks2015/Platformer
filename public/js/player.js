@@ -1,5 +1,5 @@
 var speed = 50;
-var hspeed = 50;
+var hspeed = 200;
 var gridsize = 8;
 var spriteScale = 1;
 
@@ -91,3 +91,16 @@ Hero = function(game, x, y) {
 
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
+
+Goal = function(game, x, y){
+
+  Phaser.Sprite.call(this, game, x, y, 'goal');
+  this.scale.setTo(spriteScale);
+
+  //Enable physics
+  game.physics.enable(this, Phaser.Physics.ARCADE);
+
+};
+
+Goal.prototype = Object.create(Phaser.Sprite.prototype);
+Goal.prototype.constructor = Hero;
