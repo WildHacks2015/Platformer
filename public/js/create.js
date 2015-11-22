@@ -1,4 +1,4 @@
-  var layer;
+var layer;
 
 var create = function(){
   var map;
@@ -6,6 +6,9 @@ var create = function(){
 
   map = game.add.tilemap('map');
   map.addTilesetImage('tiles');
+
+  
+
   map.setCollision(1);
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
@@ -21,14 +24,20 @@ var create = function(){
   sbutton = game.input.keyboard.addKey(Phaser.Keyboard.S);
   dbutton = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
+  // TileMap
+  // map = game.add.tilemap('blockage');
+  // map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
+  // // map.addTilesetImage('', 'tiles');
+  // map.setCollisionBetween(1,0);
+  // layer = map.createLayer('World1');
+  // layer.resizeWorld();
+
   creator = new Creator(game,100,100);
   destroyer = new Destroyer(game,100,200);
   hero = new Hero(game,100,300);
   game.add.existing(creator);
   game.add.existing(destroyer);
   game.add.existing(hero);
-
-
 
 
 };

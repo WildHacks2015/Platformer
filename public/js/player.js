@@ -3,9 +3,8 @@ var hspeed = 50;
 var gridsize = 8;
 var spriteScale = 1;
 
-Creator = function(game, x, y) {
-
-  Phaser.Sprite.call(this, game, x, y, 'p1');
+Player = function(game, x, y, playerId){
+  Phaser.Sprite.call(this, game, x, y, playerId);
   this.scale.setTo(spriteScale);
 
   //Enable physics
@@ -17,7 +16,6 @@ Creator = function(game, x, y) {
   this.moveLeft = function() {
       this.body.velocity.x = -speed;
       this.body.velocity.y = 0;
-
   };
 
   this.moveRight = function() {
@@ -58,43 +56,24 @@ Creator = function(game, x, y) {
   };
 };
 
-Creator.prototype = Object.create(Phaser.Sprite.prototype);
+Player.prototype = Object.create(Phaser.Sprite.prototype);
+Player.prototype.constructor = Player;
+
+
+Creator = function(game, x, y) {
+
+  Player.call(this, game, x, y, 'p1');
+};
+
+Creator.prototype = Object.create(Player.prototype);
 Creator.prototype.constructor = Creator;
 
 Destroyer = function(game, x, y) {
 
-  Phaser.Sprite.call(this, game, x, y, 'p2');
-  this.scale.setTo(spriteScale);
-
-  //Enable physics
-  game.physics.enable(this, Phaser.Physics.ARCADE);
-
-
-  this.moveLeft = function() {
-      this.body.velocity.x = -speed;
-      this.body.velocity.y = 0;
-  };
-  this.moveRight = function() {
-      this.body.velocity.x = speed;
-      this.body.velocity.y = 0;
-  };
-  this.moveUp = function() {
-      this.body.velocity.y = -speed;
-      this.body.velocity.x = 0;
-  };
-  this.moveDown = function() {
-      this.body.velocity.y = speed;
-      this.body.velocity.x = 0;
-  };
-
-  this.stop = function(){
-    this.body.velocity.x = 0;
-    this.body.velocity.y = 0;
-
-  };
+  Player.call(this, game, x, y, 'p2');
 };
 
-Destroyer.prototype = Object.create(Phaser.Sprite.prototype);
+Destroyer.prototype = Object.create(Player.prototype);
 Destroyer.prototype.constructor = Destroyer;
 
 
@@ -107,7 +86,6 @@ Hero = function(game, x, y) {
   game.physics.enable(this, Phaser.Physics.ARCADE);
 
   this.body.velocity.x = hspeed;
-
 
 };
 
