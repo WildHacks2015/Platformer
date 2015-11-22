@@ -9,6 +9,8 @@ Creator = function(game, x, y) {
   //Enable physics
   game.physics.enable(this, Phaser.Physics.ARCADE);
   this.collideWorldBounds = true;
+  this.inputEnabled = true;
+  this.input.enableSnap(32, 32, true, true);
 
   this.moveLeft = function() {
       this.body.velocity.x = -speed;

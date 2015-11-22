@@ -1,6 +1,13 @@
 var update = function(){
 
+
+
 // Control the creator
+
+  game.physics.arcade.collide(creator, destroyer);
+  game.physics.arcade.collide(creator, hero);
+  game.physics.arcade.collide(destroyer, hero);
+
   if(cursors.left.isDown) {
      creator.moveLeft();
    } else if (cursors.right.isDown) {
@@ -39,6 +46,5 @@ var update = function(){
       //    destroyer.stop();
       // };
       //
-
   //ELSE UP, DOWN, STOP
 };
