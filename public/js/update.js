@@ -1,10 +1,17 @@
 var update = function(){
 
+<<<<<<< HEAD
   // Control the creator
+=======
+// Control the creator
+  game.physics.arcade.collide(creator,layer);
+  game.physics.arcade.collide(destroyer,layer);
+  game.physics.arcade.collide(hero,layer);
+>>>>>>> b9ccb265a085f949de6923cca4ba5d408fa463c7
 
-  game.physics.arcade.collide(creator, destroyer);
-  game.physics.arcade.collide(creator, hero);
-  game.physics.arcade.collide(destroyer, hero);
+  // game.physics.arcade.collide(creator, destroyer);
+  // game.physics.arcade.collide(creator, hero);
+  // game.physics.arcade.collide(destroyer, hero);
 
   if(cursors.left.isDown) {
      creator.moveLeft();
