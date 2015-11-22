@@ -10,11 +10,20 @@ var create = function(){
   sbutton = game.input.keyboard.addKey(Phaser.Keyboard.S);
   dbutton = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
+  // TileMap
+  // map = game.add.tilemap('blockage');
+  // map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
+  // // map.addTilesetImage('', 'tiles');
+  // map.setCollisionBetween(1,0);
+  // layer = map.createLayer('World1');
+  // layer.resizeWorld();
+
   creator = new Creator(game,100,100);
   destroyer = new Destroyer(game,100,100);
   hero = new Hero(game,100,100);
   game.add.existing(creator);
   game.add.existing(destroyer);
   game.add.existing(hero);
+
 
 };

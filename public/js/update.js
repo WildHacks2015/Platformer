@@ -1,6 +1,6 @@
 var update = function(){
 
-// Control the creator
+  // Control the creator
   if(cursors.left.isDown) {
      creator.moveLeft();
    } else if (cursors.right.isDown) {
@@ -14,31 +14,20 @@ var update = function(){
     }
 
   // Control the destroyer
-    if(abutton.isDown) {
-       destroyer.moveLeft();
-     } else if (dbutton.isDown) {
-       destroyer.moveRight();
-     } else if (wbutton.isDown) {
-       destroyer.moveUp();
-     } else if (sbutton.isDown) {
-       destroyer.moveDown();
-     } else {
-       destroyer.stop();
-    }
+  if(abutton.isDown) {
+     destroyer.moveLeft();
+   } else if (dbutton.isDown) {
+     destroyer.moveRight();
+   } else if (wbutton.isDown) {
+     destroyer.moveUp();
+   } else if (sbutton.isDown) {
+     destroyer.moveDown();
+   } else {
+     destroyer.stop();
+  }
 
-    // Control the hero
-      // if(abutton.isDown) {
-      //    destroyer.moveLeft();
-      //  } else if (dbutton.isDown) {
-      //    destroyer.moveRight();
-      //  } else if (wbutton.isDown) {
-      //    destroyer.moveUp();
-      //  } else if (sbutton.isDown) {
-      //    destroyer.moveDown();
-      //  } else {
-      //    destroyer.stop();
-      // };
-      //
+  // game.physics.arcade.collide(creator, layer);
+  creator.body.velocity.x = 0;
 
   //ELSE UP, DOWN, STOP
 };
