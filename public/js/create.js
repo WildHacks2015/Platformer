@@ -37,7 +37,8 @@ var text;
 var endGame = function(){
   //Uncaught TypeError: this.endGame is not a function
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-  text = game.add.text(0, 0, "Uncaught TypeError: this.endGame\nis not a function",style);
+  // text = game.add.text(0, 0, "Uncaught TypeError: this.endGame\nis not a function",style);
+  text = game.add.text(0, 0, "You Win!",style);
   text.setTextBounds(0, 100, 800, 100);
   //game.lockRender = true;
   console.log("Game end");
