@@ -31,6 +31,7 @@ var update = function(){
   passableTile = map.getTile(12,4);
   layer.map.putTile(passableTile, nonPlatformX, nonPlatformY);
 
+
   // Control the destroyer
   if(abutton.isDown) {
      destroyer.moveLeft();

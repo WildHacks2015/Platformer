@@ -10,9 +10,7 @@ Player = function(game, x, y, playerId){
   //Enable physics
   game.physics.enable(this, Phaser.Physics.ARCADE);
   this.collideWorldBounds = true;
-  this.inputEnabled = true;
-  this.input.enableSnap(32, 32, true, true);
-
+  this.body.tilePadding.set(8, 8);
   this.moveLeft = function() {
       this.body.velocity.x = -speed;
       this.body.velocity.y = 0;
@@ -54,6 +52,7 @@ Player = function(game, x, y, playerId){
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
   };
+
 };
 
 Player.prototype = Object.create(Phaser.Sprite.prototype);
