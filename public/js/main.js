@@ -1,3 +1,6 @@
-var game = new Phaser.Game(640,
-  480, Phaser.AUTO, '',
+var gWidth = 640;
+var gHeight = 480;
+
+var game = new Phaser.Game(gWidth,
+  gHeight, Phaser.AUTO, '',
   {preload: preload, create: create, update: update});

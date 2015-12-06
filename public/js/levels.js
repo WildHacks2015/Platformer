@@ -26,6 +26,7 @@ var level1 = function(){
   map.addTilesetImage('tiles');
 
   map.setCollision(1);
+  map.setCollision(4);
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
   layer.dirty = true;
@@ -49,6 +50,7 @@ var level2 = function(){
   map.addTilesetImage('tiles');
 
   map.setCollision(1);
+  map.setCollision(4);
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
   layer.dirty = true;
