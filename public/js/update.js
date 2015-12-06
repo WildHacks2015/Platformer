@@ -1,6 +1,9 @@
 var update = function(){
 
-// Control the creator
+  // Reset the level
+  if(resetbutton.isDown)
+    resetLevel();
+
   // game.physics.arcade.collide(creator,layer);
   // game.physics.arcade.collide(destroyer,layer);
   game.physics.arcade.collide(hero,layer);
@@ -9,6 +12,7 @@ var update = function(){
   game.physics.arcade.collide(creator, hero);
   game.physics.arcade.collide(destroyer, hero);
 
+  // Control the creator
   if(cursors.left.isDown) {
      creator.moveLeft();
    } else if (cursors.right.isDown) {
@@ -44,7 +48,7 @@ var update = function(){
   }
 
   //Check for win conditions
-  if (this.gameRunning && game.physics.arcade.collide(hero,goal)){
+  if (game.physics.arcade.collide(hero,goal)){
     nextLevel();
   }
 };
