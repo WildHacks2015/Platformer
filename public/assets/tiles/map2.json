@@ -25,7 +25,7 @@
          "firstgid":1,
          "image":"tiles 8x8.png",
          "imageheight":8,
-         "imagewidth":24,
+         "imagewidth":48,
          "margin":0,
          "name":"tiles",
          "properties":
@@ -33,7 +33,7 @@
 
             },
          "spacing":0,
-         "tilecount":3,
+         "tilecount":6,
          "tileheight":8,
          "tilewidth":8
         }],

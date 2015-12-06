@@ -12,6 +12,7 @@ Possible features to add
 * indestructible, impassible blocks
   * also ones that the hero can pass but creator/destroyer cant and vice versa
 * Level select screen
+* Falling damage for hero? aka splat if moving too fast
 
 Level ideas
 *empty pit, no creator, destroyer has to "bounce" hero across

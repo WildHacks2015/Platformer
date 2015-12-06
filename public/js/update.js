@@ -4,8 +4,8 @@ var update = function(){
   if(resetbutton.isDown)
     resetLevel();
 
-  // game.physics.arcade.collide(creator,layer);
-  // game.physics.arcade.collide(destroyer,layer);
+  //game.physics.arcade.collide(creator,layer);
+  //game.physics.arcade.collide(destroyer,layer);
   game.physics.arcade.collide(hero,layer);
 
   game.physics.arcade.collide(creator, destroyer);
