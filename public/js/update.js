@@ -23,13 +23,11 @@ var update = function(){
 
   platformX = layer.getTileX(creator.x);
   platformY = layer.getTileY(creator.y);
-  impassableTile = map.getTile(37, 12);
-  layer.map.putTile(impassableTile, platformX, platformY);
+  layer.map.putTile(1, platformX, platformY);
 
   nonPlatformX = layer.getTileX(destroyer.x);
   nonPlatformY = layer.getTileY(destroyer.y);
-  passableTile = map.getTile(12,4);
-  layer.map.putTile(passableTile, nonPlatformX, nonPlatformY);
+  layer.map.putTile(2, nonPlatformX, nonPlatformY);
 
 
   // Control the destroyer
