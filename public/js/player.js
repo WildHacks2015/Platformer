@@ -2,6 +2,7 @@ var speed = 100;
 var hspeed = 10;
 var gridsize = 8;
 var spriteScale = 1;
+var gravstr = 100;
 
 // Base class for controllable objects
 Player = function(game, x, y, playerId){
@@ -27,6 +28,7 @@ Player = function(game, x, y, playerId){
       else if (this.body.velocity.y < 0)
         this.body.y = this.body.y - (this.body.y % gridsize);
         }
+    console.log("Grid snapped!");
     };
 
   //Movement
@@ -63,10 +65,14 @@ Player = function(game, x, y, playerId){
   };
 
   this.stop = function(){
-    this.gridsnap('x');
-    this.gridsnap('y');
-    this.body.velocity.x = 0;
-    this.body.velocity.y = 0;
+    if (this.body.velocity.x != 0){
+      this.gridsnap('x');
+      this.body.velocity.x = 0;
+    }
+    if (this.body.velocity.y != 0){
+      this.gridsnap('y');
+      this.body.velocity.y = 0;
+    }
   };
 };
 
@@ -75,7 +81,6 @@ Player.prototype.constructor = Player;
 
 // "Creator"
 Creator = function(game, x, y) {
-
   Player.call(this, game, x, y, 'p1');
 };
 
@@ -93,14 +98,11 @@ Destroyer.prototype.constructor = Destroyer;
 
 // "Hero"
 Hero = function(game, x, y) {
-
   Phaser.Sprite.call(this, game, x, y, 'p3');
   this.scale.setTo(spriteScale);
 
   //Enable physics
   game.physics.enable(this, Phaser.Physics.ARCADE);
-
-  this.body.velocity.x = hspeed;
 
 };
 

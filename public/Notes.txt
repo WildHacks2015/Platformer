@@ -1,0 +1,12 @@
+Possible behaviors of "hero"
+* gravity (axis, strength, direction)
+* initial velocity (direction, strength)
+* bounciness
+* friction
+* moves every once in a while (jumps, scoots, etc)
+* scale (larger/smaller)
+
+Bits to improve/fix
+* make level prototype. Each level1 level2 etc. is implementaion of level template.
+* gameEnd() repeats upon continuous contact with goal
+* LAG LAG LAG WHY

@@ -45,7 +45,6 @@ var update = function(){
 
   //Check for win conditions
   if (this.gameRunning && game.physics.arcade.collide(hero,goal)){
-    this.gameRunning = false;
-    endGame();
+    nextLevel();
   }
 };
