@@ -4,14 +4,16 @@ var update = function(){
   if(resetbutton.isDown)
     resetLevel();
 
-  //game.physics.arcade.collide(creator,layer);
-  //game.physics.arcade.collide(destroyer,layer);
+  //make creator/destroyer collide with things?
+  //make GROUPS collide
   game.physics.arcade.collide(hero,layer);
+  game.physics.arcade.collide(creator, boundaryLayer);
+  game.physics.arcade.collide(destroyer, boundaryLayer);
+  game.physics.arcade.collide(hero, boundaryLayer);
 
   game.physics.arcade.collide(creator, destroyer);
   game.physics.arcade.collide(creator, hero);
   game.physics.arcade.collide(destroyer, hero);
-
   // Control the creator
   if(cursors.left.isDown) {
      creator.moveLeft();
