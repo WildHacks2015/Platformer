@@ -49,11 +49,17 @@ var testlevel = function(){
   map = game.add.tilemap('testmap');
   map.addTilesetImage('tiles');
 
-  map.setCollision(1);
-  map.setCollision(4);
+
   layer = map.createLayer('Tile Layer 1');
+  boundaryLayer = map.createLayer('Boundary Layer');
   layer.resizeWorld();
   layer.dirty = true;
+  map.setCollision(1,true, layer);
+  map.setCollision(4,true, boundaryLayer);
+
+  playerGroup = game.add.group();
+  allObjGroup = game.add.group();
+  console.log(playerGroup);
 
   cc = tileToCoord(game, creaTile); //use argument spreading?
   dc = tileToCoord(game, destTile);
@@ -64,6 +70,18 @@ var testlevel = function(){
   hero = new Hero(game,hc[0], hc[1]);
   goal = new Goal(game,gc[0], gc[1]);
 
+  creator.anchor.set(.5);
+  destroyer.anchor.set(.5);
+
+  //Make groups (implement later)
+  /*
+  playerGroup.add(creator);
+  playerGroup.add(destroyer);
+  allObjGroup.add(creator);
+  allObjGroup.add(destroyer);
+  allObjGroup.add(hero);
+  */
+
   //add hero properties
   hero.body.velocity.x = hspeed;
 
@@ -73,6 +91,7 @@ var testlevel = function(){
   game.add.existing(goal);
 };
 
+/*
 var level1 = function(){
   map = game.add.tilemap('map1');
   map.addTilesetImage('tiles');
@@ -120,9 +139,12 @@ var level2 = function(){
   game.add.existing(destroyer);
   game.add.existing(hero);
   game.add.existing(goal);
-};
+<<<<<<< HEAD
+}
+*/
 
 var displayMessage = function(message){
+>>>>>>> d1a2784c7ca7ced4dd83bed336f160e1c3f28596
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   text = game.add.text(0, 0, message,style);
   text.setTextBounds(0, 100, 800, 100);

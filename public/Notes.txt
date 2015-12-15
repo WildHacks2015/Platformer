@@ -31,4 +31,4 @@ Bits to improve/fix
 * gameEnd() repeats upon continuous contact with goal
 * LAG LAG LAG WHY
 * need to destroy onscreen objects upon level switch?
-* make tiles paste in middle (or switch last tile)
+* paste last tile?
