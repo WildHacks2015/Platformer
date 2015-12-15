@@ -122,15 +122,6 @@ var level2 = function(){
   game.add.existing(goal);
 };
 
-// This function should have some end game functionality where nothing more is played
-// var endGame = function(message){
-//   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-//   text = game.add.text(0, 0, message,style);
-//   text.setTextBounds(0, 100, 800, 100);
-//   //game.lockRender = true
-//   console.log("Game end");
-// }
-
 var displayMessage = function(message){
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   text = game.add.text(0, 0, message,style);
