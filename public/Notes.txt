@@ -1,3 +1,12 @@
+Possible Competitive Game Modes
+* Two goals, each try to push the single hero in (could be good and evil)
+* Two goals, each tries to push their hero in. WHite hero blocked by black tiles, black hero blocked by white
+Possible Cooperative Game Modes
+* Each player is blocked by their own color
+Possible Single Player Game Modes
+*"centipede": the destroyer follows the creator. The number of tiles between them can be changed
+
+
 Possible behaviors of "hero" - there should be a nice way to code this
 * gravity (axis, strength, direction)
 * initial velocity (direction, strength)
@@ -5,7 +14,6 @@ Possible behaviors of "hero" - there should be a nice way to code this
 * friction
 * moves every once in a while (jumps, scoots, etc)
 * scale (larger/smaller)
-
 
 Possible features to add
 * "MOnsters" push the hero around or reset level on contact
@@ -23,5 +31,4 @@ Bits to improve/fix
 * gameEnd() repeats upon continuous contact with goal
 * LAG LAG LAG WHY
 * need to destroy onscreen objects upon level switch?
-* make "herostart" and "goalstart" tiles to specify locations of hero and goal on map?
 * make tiles paste in middle (or switch last tile)

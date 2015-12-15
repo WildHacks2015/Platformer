@@ -1,30 +1,24 @@
 var currentLevel = 0;
 var gridsize = 8; //used for grid snapping and player placement
+var whiteTile = 1;
+var blackTile = 2;
+var greyTile = 3;
+var solidTile = 4;
+var creaTile = 5;
+var destTile = 6;
+var heroTile = 7;
+var goalTile = 8;
 
 var nextLevel = function(){
   currentLevel++;
   resetLevel();
 }
 
-var playerCoordinates = function(){
-  //MAKE NICER FUNCTION PLZ. Perhaps generic function that runs for each player
-  creaTile = map.searchTileIndex(5);
-  destTile = map.searchTileIndex(6);
-  heroTile = map.searchTileIndex(7);
-  goalTile = map.searchTileIndex(8);
-  cx = gridsize*creaTile.x;
-  cy = gridsize*creaTile.y;
-  dx = gridsize*destTile.x;
-  dy = gridsize*destTile.y;
-  hx = gridsize*heroTile.x;
-  hy = gridsize*heroTile.y;
-  gx = gridsize*goalTile.x;
-  gy = gridsize*goalTile.y;
-  layer.map.putTile(2, creaTile.x, creaTile.y);
-  layer.map.putTile(2, destTile.x, destTile.y);
-  layer.map.putTile(2, heroTile.x, heroTile.y);
-  layer.map.putTile(2, goalTile.x, goalTile.y);
-  return [cx, cy, dx, dy, hx, hy, gx, gy];
+var tileToCoord = function(game, id){
+  // make create object too?!
+  t = map.searchTileIndex(id); //tile in question
+  layer.map.putTile(greyTile, t.x, t.y); //cover tile
+  return [gridsize*t.x, gridsize*t.y];//pixel coordinates of tile
 }
 
 var resetLevel = function(){
@@ -60,11 +54,14 @@ var testlevel = function(){
   layer.resizeWorld();
   layer.dirty = true;
 
-  pCood = playerCoordinates();
-  creator = new Creator(game,pCood[0], pCood[1]);
-  destroyer = new Destroyer(game,pCood[2], pCood[3]);
-  hero = new Hero(game,pCood[4], pCood[5]);
-  goal = new Goal(game,pCood[6], pCood[7]);
+  cc = tileToCoord(game, creaTile); //use argument spreading?
+  dc = tileToCoord(game, destTile);
+  hc = tileToCoord(game, heroTile);
+  gc = tileToCoord(game, goalTile);
+  creator = new Creator(game,cc[0], cc[1]);
+  destroyer = new Destroyer(game,dc[0], dc[1]);
+  hero = new Hero(game,hc[0], hc[1]);
+  goal = new Goal(game,gc[0], gc[1]);
 
   //add hero properties
   hero.body.velocity.x = hspeed;
