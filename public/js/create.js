@@ -14,4 +14,25 @@ var create = function(){
 
 	// Initialize first level
 	nextLevel();
+
+  // add timer end game condition
+  timeEndGame();
+};
+
+var timeEndGame = function(){
+
+  var timer = 10;
+  displayMessage(timer); // initialize timer
+
+  function timerChange(){
+    if (timer <= 0){
+      // display you lose
+      updateMessage("You Lose");
+    }else{
+      updateMessage(timer);
+      timer--;
+    }
+  }
+
+  game.time.events.loop(Phaser.Timer.SECOND, timerChange,this);
 };

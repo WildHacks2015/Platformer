@@ -25,7 +25,7 @@ var resetLevel = function(){
   // Destroy onscreen objects?
 
   if (debugging){
-    testlevel()
+    testlevel();
   }
   else {
     switch (currentLevel) {
@@ -36,7 +36,8 @@ var resetLevel = function(){
         level2();
         break;
       case 3:
-        endGame();
+        endGame("You Win!");
+        break;
       default:
         //REALLY SLOPPY! This function runs forever after endGame() if hero and goal are still in contact
     }
@@ -119,15 +120,25 @@ var level2 = function(){
   game.add.existing(destroyer);
   game.add.existing(hero);
   game.add.existing(goal);
-}
+};
 
-var endGame = function(){
-  var text;
-  //Uncaught TypeError: this.endGame is not a function
+// This function should have some end game functionality where nothing more is played
+// var endGame = function(message){
+//   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+//   text = game.add.text(0, 0, message,style);
+//   text.setTextBounds(0, 100, 800, 100);
+//   //game.lockRender = true
+//   console.log("Game end");
+// }
+
+var displayMessage = function(message){
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-  // text = game.add.text(0, 0, "Uncaught TypeError: this.endGame\nis not a function",style);
-  text = game.add.text(0, 0, "You Win!",style);
+  text = game.add.text(0, 0, message,style);
   text.setTextBounds(0, 100, 800, 100);
   //game.lockRender = true
   console.log("Game end");
+};
+
+var updateMessage = function(message){
+  text.setText(message);
 };
