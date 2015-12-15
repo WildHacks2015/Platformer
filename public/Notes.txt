@@ -13,14 +13,15 @@ Possible features to add
   * also ones that the hero can pass but creator/destroyer cant and vice versa
 * Level select screen
 * Falling damage for hero? aka splat if moving too fast
+* resizable windows
 
 Level ideas
 *empty pit, no creator, destroyer has to "bounce" hero across
 
 Bits to improve/fix
-* make level prototype. Each level1 level2 etc. is implementaion of level template.
+* make level prototsype. Each level1 level2 etc. is implementaion of level template.
 * gameEnd() repeats upon continuous contact with goal
 * LAG LAG LAG WHY
 * need to destroy onscreen objects upon level switch?
 * make "herostart" and "goalstart" tiles to specify locations of hero and goal on map?
-* make tiles paste in middle
+* make tiles paste in middle (or switch last tile)

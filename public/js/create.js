@@ -1,5 +1,4 @@
 var layer;
-
 var create = function(){
   //this.background = this.game.add.sprite(0, 0, "background");
 
@@ -13,5 +12,6 @@ var create = function(){
   dbutton = game.input.keyboard.addKey(Phaser.Keyboard.D);
   resetbutton = game.input.keyboard.addKey(Phaser.Keyboard.P);
 
-  level1();
+	// Initialize first level
+	nextLevel();
 };

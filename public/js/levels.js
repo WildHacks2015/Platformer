@@ -1,25 +1,79 @@
-var currentLevel = 1;
+var currentLevel = 0;
+var gridsize = 8; //used for grid snapping and player placement
 
 var nextLevel = function(){
   currentLevel++;
   resetLevel();
 }
 
+var playerCoordinates = function(){
+  //MAKE NICER FUNCTION PLZ. Perhaps generic function that runs for each player
+  creaTile = map.searchTileIndex(5);
+  destTile = map.searchTileIndex(6);
+  heroTile = map.searchTileIndex(7);
+  goalTile = map.searchTileIndex(8);
+  cx = gridsize*creaTile.x;
+  cy = gridsize*creaTile.y;
+  dx = gridsize*destTile.x;
+  dy = gridsize*destTile.y;
+  hx = gridsize*heroTile.x;
+  hy = gridsize*heroTile.y;
+  gx = gridsize*goalTile.x;
+  gy = gridsize*goalTile.y;
+  layer.map.putTile(2, creaTile.x, creaTile.y);
+  layer.map.putTile(2, destTile.x, destTile.y);
+  layer.map.putTile(2, heroTile.x, heroTile.y);
+  layer.map.putTile(2, goalTile.x, goalTile.y);
+  return [cx, cy, dx, dy, hx, hy, gx, gy];
+}
+
 var resetLevel = function(){
   // Destroy onscreen objects?
-  switch (currentLevel) {
-    case 1:
-      level1();
-      break;
-    case 2:
-      level2();
-      break;
-    case 3:
-      endGame();
-    default:
-      //REALLY SLOPPY! This function runs forever after endGame() if hero and goal are still in contact
+
+  if (debugging){
+    testlevel()
   }
-}
+  else {
+    switch (currentLevel) {
+      case 1:
+        level1();
+        break;
+      case 2:
+        level2();
+        break;
+      case 3:
+        endGame();
+      default:
+        //REALLY SLOPPY! This function runs forever after endGame() if hero and goal are still in contact
+    }
+  }
+
+};
+
+var testlevel = function(){
+  map = game.add.tilemap('testmap');
+  map.addTilesetImage('tiles');
+
+  map.setCollision(1);
+  map.setCollision(4);
+  layer = map.createLayer('Tile Layer 1');
+  layer.resizeWorld();
+  layer.dirty = true;
+
+  pCood = playerCoordinates();
+  creator = new Creator(game,pCood[0], pCood[1]);
+  destroyer = new Destroyer(game,pCood[2], pCood[3]);
+  hero = new Hero(game,pCood[4], pCood[5]);
+  goal = new Goal(game,pCood[6], pCood[7]);
+
+  //add hero properties
+  hero.body.velocity.x = hspeed;
+
+  game.add.existing(creator);
+  game.add.existing(destroyer);
+  game.add.existing(hero);
+  game.add.existing(goal);
+};
 
 var level1 = function(){
   map = game.add.tilemap('map1');
@@ -43,7 +97,7 @@ var level1 = function(){
   game.add.existing(destroyer);
   game.add.existing(hero);
   game.add.existing(goal);
-}
+};
 
 var level2 = function(){
   map = game.add.tilemap('map2');
@@ -61,7 +115,7 @@ var level2 = function(){
   goal = new Goal(game,544,304);
 
   //add special properties
-  hero.body.gravity.x = gravstr;
+  hero.body.gravity.y = gravstr;
   hero.body.velocity.x = hspeed;
 
   game.add.existing(creator);
