@@ -27,13 +27,20 @@ var update = function(){
       creator.stop();
     }
 
-  platformX = layer.getTileX(creator.x);
-  platformY = layer.getTileY(creator.y);
-  layer.map.putTile(1, platformX, platformY);
 
-  nonPlatformX = layer.getTileX(destroyer.x);
-  nonPlatformY = layer.getTileY(destroyer.y);
-  layer.map.putTile(2, nonPlatformX, nonPlatformY);
+/** Place Tiles **/
+  xc = layer.getTileX(creator.x);
+  yc = layer.getTileY(creator.y);
+
+  if (layer.map.getTile(xc,yc).index !=1 )
+    layer.map.putTile(1, xc, yc);
+
+  xd = layer.getTileX(destroyer.x);
+  yd = layer.getTileY(destroyer.y);
+
+  if (layer.map.getTile(xd,yd).index !=2 )
+      layer.map.putTile(2, xd, yd);
+
 
 
   // Control the destroyer

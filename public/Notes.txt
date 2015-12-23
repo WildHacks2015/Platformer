@@ -1,3 +1,12 @@
+Multiplayer? Online?
+* Two/Three players collaborate.
+  * Challenge is to work together with no communication
+  * Could be "warioware" style aka short, successive games.
+    * Different people each time? Maybe option to stick together?
+
+
+
+
 Possible Competitive Game Modes
 * Two goals, each try to push the single hero in (could be good and evil)
 * Two goals, each tries to push their hero in. WHite hero blocked by black tiles, black hero blocked by white
@@ -27,8 +36,7 @@ Level ideas
 *empty pit, no creator, destroyer has to "bounce" hero across
 
 Bits to improve/fix
-* make level prototsype. Each level1 level2 etc. is implementaion of level template.
 * gameEnd() repeats upon continuous contact with goal
-* LAG LAG LAG WHY
 * need to destroy onscreen objects upon level switch?
 * paste last tile?
+* move one tile per button press?
