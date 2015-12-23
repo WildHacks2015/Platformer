@@ -9,8 +9,11 @@ var destTile = 6;
 var heroTile = 7;
 var goalTile = 8;
 
+var maps = ['testmap','m1','m2','m3'];
+
 var nextLevel = function(){
-  currentLevel++;
+  if (!debugging)
+    currentLevel++;
   resetLevel();
 }
 
@@ -22,33 +25,15 @@ var tileToCoord = function(game, id){
 }
 
 var resetLevel = function(){
-  // Destroy onscreen objects?
+  // Destroy onscreen objects?s
+    Level(currentLevel);
+}
 
-  if (debugging){
-    testlevel();
-  }
-  else {
-    switch (currentLevel) {
-      case 1:
-        level1();
-        break;
-      case 2:
-        level2();
-        break;
-      case 3:
-        endGame("You Win!");
-        break;
-      default:
-        //REALLY SLOPPY! This function runs forever after endGame() if hero and goal are still in contact
-    }
-  }
+var Level = function(levelId){ //consider making this a prototype. CUrrently doesnt allow for different behavior, only maps
 
-};
-
-var testlevel = function(){
-  map = game.add.tilemap('testmap');
+  console.log("Loading level " + levelId);
+  map = game.add.tilemap(maps[levelId]);
   map.addTilesetImage('tiles');
-
 
   layer = map.createLayer('Tile Layer 1');
   boundaryLayer = map.createLayer('Boundary Layer');
@@ -139,12 +124,10 @@ var level2 = function(){
   game.add.existing(destroyer);
   game.add.existing(hero);
   game.add.existing(goal);
-<<<<<<< HEAD
-}
+};
 */
 
 var displayMessage = function(message){
->>>>>>> d1a2784c7ca7ced4dd83bed336f160e1c3f28596
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   text = game.add.text(0, 0, message,style);
   text.setTextBounds(0, 100, 800, 100);
