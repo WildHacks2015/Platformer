@@ -9,6 +9,12 @@ var destTile = 6;
 var heroTile = 7;
 var goalTile = 8;
 
+var timerLoop;
+
+var hspeed = 10;
+var gravstr = -10;
+var CoR = .2; //coefficient of restitution aka bounciness
+
 var maps = ['testmap','m1','m2','m3'];
 
 var nextLevel = function(){
@@ -26,6 +32,11 @@ var tileToCoord = function(game, id){
 
 var resetLevel = function(){
   // Destroy onscreen objects?s
+  game.time.events.remove(timerLoop);
+  tBC= [0,0]; //toBeCreated
+  if (layer)
+    layer.destroy();
+
     Level(currentLevel);
 }
 
@@ -69,70 +80,39 @@ var Level = function(levelId){ //consider making this a prototype. CUrrently doe
 
   //add hero properties
   hero.body.velocity.x = hspeed;
-
-  game.add.existing(creator);
-  game.add.existing(destroyer);
-  game.add.existing(hero);
-  game.add.existing(goal);
-};
-
-/*
-var level1 = function(){
-  map = game.add.tilemap('map1');
-  map.addTilesetImage('tiles');
-
-  map.setCollision(1);
-  map.setCollision(4);
-  layer = map.createLayer('Tile Layer 1');
-  layer.resizeWorld();
-  layer.dirty = true;
-
-  creator = new Creator(game,104,104);
-  destroyer = new Destroyer(game,104,200);
-  hero = new Hero(game,104,304);
-  goal = new Goal(game,544,304);
-
-  //add hero properties
-  hero.body.velocity.x = hspeed;
-
-  game.add.existing(creator);
-  game.add.existing(destroyer);
-  game.add.existing(hero);
-  game.add.existing(goal);
-};
-
-var level2 = function(){
-  map = game.add.tilemap('map2');
-  map.addTilesetImage('tiles');
-
-  map.setCollision(1);
-  map.setCollision(4);
-  layer = map.createLayer('Tile Layer 1');
-  layer.resizeWorld();
-  layer.dirty = true;
-
-  creator = new Creator(game,104,104);
-  destroyer = new Destroyer(game,104,200);
-  hero = new Hero(game,104,304);
-  goal = new Goal(game,544,304);
-
-  //add special properties
   hero.body.gravity.y = gravstr;
-  hero.body.velocity.x = hspeed;
+  hero.body.bounce.setTo(CoR, CoR);
 
   game.add.existing(creator);
   game.add.existing(destroyer);
   game.add.existing(hero);
   game.add.existing(goal);
+
+  // start timer (if applicable)
+  levelTimer(15);
 };
-*/
+
+var levelTimer = function(timer){ //timer is in seconds
+  displayMessage(timer); // initialize timer
+
+  function timerChange(){
+    if (timer <= 0){
+      // Time's up!
+      updateMessage("Time's Up!");
+      console.log("Game end");
+      game.time.events.remove(timerLoop);
+    }else{
+      updateMessage(timer);
+      timer--;
+    }
+  }
+  timerLoop = game.time.events.loop(Phaser.Timer.SECOND, timerChange,this);
+};
 
 var displayMessage = function(message){
   style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   text = game.add.text(0, 0, message,style);
-  text.setTextBounds(0, 100, 800, 100);
-  //game.lockRender = true
-  console.log("Game end");
+  text.setTextBounds(0, 0, gWidth, gHeight);
 };
 
 var updateMessage = function(message){
