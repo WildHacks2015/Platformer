@@ -1,7 +1,7 @@
 var speed = 100;
-var hspeed = 10;
+
 var spriteScale = 1;
-var gravstr = 100;
+
 var playerGroup;
 var allObjGroup;
 

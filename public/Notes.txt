@@ -3,7 +3,7 @@ Multiplayer? Online?
   * Challenge is to work together with no communication
   * Could be "warioware" style aka short, successive games.
     * Different people each time? Maybe option to stick together?
-
+* Maybe draw with moude like http://www.addictinggames.com/strategy-games/drawplay.jsp
 
 
 
@@ -14,7 +14,10 @@ Possible Cooperative Game Modes
 * Each player is blocked by their own color
 Possible Single Player Game Modes
 *"centipede": the destroyer follows the creator. The number of tiles between them can be changed
-
+*Limited by time
+*Limited by amount painted
+  *Can choose to paint
+*Hidden parts? Only revealed when closer
 
 Possible behaviors of "hero" - there should be a nice way to code this
 * gravity (axis, strength, direction)
@@ -24,6 +27,11 @@ Possible behaviors of "hero" - there should be a nice way to code this
 * moves every once in a while (jumps, scoots, etc)
 * scale (larger/smaller)
 
+Possible behaviors of levels
+* timed
+* gravity (property of hero)
+* blocks are solid for creator/destroyer
+
 Possible features to add
 * "MOnsters" push the hero around or reset level on contact
 * indestructible, impassible blocks
@@ -31,12 +39,12 @@ Possible features to add
 * Level select screen
 * Falling damage for hero? aka splat if moving too fast
 * resizable windows
+* only destryer interacts
 
 Level ideas
 *empty pit, no creator, destroyer has to "bounce" hero across
 
 Bits to improve/fix
-* gameEnd() repeats upon continuous contact with goal
 * need to destroy onscreen objects upon level switch?
 * paste last tile?
 * move one tile per button press?
